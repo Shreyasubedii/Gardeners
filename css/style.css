@@ -1,0 +1,210 @@
+:root{
+    --green: #8FB3A0;
+}
+
+
+/* applies css to all elements, removes default margin and padding, changes box model for elements,
+sets default font for all, removes default border and outline,txt dec removes the default underline
+in hyperlinks, default capitalization, sets transition duration of 0.2 secs */
+*{
+    margin :0;
+    padding : 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    outline: none ; border: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: .2s linear;
+}
+/* sets consistent base font size for the entire page, scroll to the target element smoothly rather than jumping instantly,
+ensure that the target element is not covered by fixed headers or other elements during smooth scrolling,
+hides the horizontal scroolbar */
+html{
+    font-size:62.5%;
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+    overflow-x: hidden;
+
+}
+section{
+    padding: 2rem 9%;
+    
+
+}
+.btn{
+    display: inline-block;
+    margin-top: 1rem;
+    border-radius: 5rem;
+    background: #333;
+    color:#fff;
+    padding: .9rem 3.5rem;
+    cursor: pointer;
+    font-size: 1.7rem;
+
+}
+.btn:hover{
+    background: var(--green);
+
+}
+/* header will stay fixed at the top of the viewport,set the fixed header to cover the entire width of the viewport
+ and be positioned at the top, turns the header into a flex container, ensures that the header will appear above other 
+ elements with a lower z-index,specifies a semi-transparent black color for the shadow */
+header{
+    position: fixed;
+    top:0; left:0; right:0;
+    background: #fff;
+    padding: 2rem 9%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+    box-shadow: 0.5rem 1rem rgba(0, 0,0,.1);
+}
+header .logo{
+    font-size: 3rem;
+    color: #333;
+    font-weight: bolder;
+
+}
+header .logo span{
+    color: var(--green);
+}
+header .navbar a{
+    font-size: 2rem;
+    padding: 0 1.5rem;
+    color: #666;
+}
+header .navbar a:hover{
+    color: var(--green);
+
+}
+header .icons a{
+    font-size: 2.5rem ;
+    color: #333;
+    margin-left: 1.5rem;
+
+}
+
+header .icons a:hover{
+    color:var(--green);
+
+}
+header #toggler{
+    display: none;
+    
+}
+header .fa-bars{
+    font-size: 3rem;
+    color:#333;
+    border-radius: .5rem;
+    padding: .5rem 1.5rem;
+    cursor: pointer;
+    border: .1rem solid rgba(0,0,0,.3);
+    display: none;
+}
+.home{
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    background: url(../images/bg6.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.home .content{
+    max-width: 50rem;
+}
+.home .content h3{
+    font-size: 6rem;
+    color: #0c0c0c;
+
+}
+.home .content span{
+    font-size: 3.5rem;
+    color: var(--green);
+    padding: 1rem 0;
+    line-height: 1.5;
+
+    
+}
+.home .content p{
+    font-size: 1.5rem;
+    color: #999;
+    padding: 1rem 0;
+    line-height: 1.5;
+
+    
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* media query */
+@media(max-width:991px){
+    html{
+        font-size: 55%;
+    }
+    header{
+        padding:2rem;
+    }
+    section{
+        padding:2rem;
+    }
+    .home{
+        background-position: left;
+
+    }
+}
+
+@media(max-width:768px){
+    header .fa-bars{
+        display: block;
+    }
+    header .navbar{
+        position: absolute;
+        top:100%; left:0; right:0;
+        background: #eee;
+        border-top: .1rem solid rgba(0, 0, 0, .1);
+        clip-path: polygon(0 0,100% 0, 100% 0,0 0);
+    }
+    header #toggler:checked ~ .navbar{
+        clip-path: polygon(0 0,100% 0, 100% 100%,0% 100%);
+       
+    }
+    header .navbar a{
+        margin: 1.5rem;
+        padding: 1.5rem;
+        background: #fff;
+        border: .1rem solid rgba(0, 0, 0, .1);
+        display: block;
+    }
+    .home .content h3{
+        font-size: 5rem;
+
+    }
+    .home .content span{
+        font-size: 2.5rem;
+        
+    }
+}
+@media(max-width:450px){
+    html{
+        font-size: 50%;
+    }
+    
+}
